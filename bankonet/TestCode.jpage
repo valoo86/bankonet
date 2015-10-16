@@ -1,0 +1,14 @@
+//ceci est une Scapbook Page
+
+6+7*8
+7/8
+7%8
+
+int i = 10;
+i+=10;
+++i;
+
+int x = 0;
+System.out.println(((x == 0) | (1/x >= 1)));
+int x = 2;
+x > 0 ? '+' : '-'
