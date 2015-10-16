@@ -241,7 +241,7 @@ public class Main {
 			while (enumeration.hasMoreElements()) {
 				String numero = (String) enumeration.nextElement();
 				String format = prop.getProperty(numero);
-				if()
+
 				CompteCourant compteCourant = CompteCourant.creerCompteCourant(numero, format);
 				comptesCourantsMap.put(compteCourant.getNumero(), compteCourant);
 			}
