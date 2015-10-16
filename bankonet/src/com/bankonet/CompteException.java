@@ -1,6 +1,8 @@
 package com.bankonet;
 
-public class CompteException extends Exception {
+import com.bankonet.exception.BankonetException;
+
+public class CompteException extends BankonetException {
 
 	public CompteException() {
 		super();

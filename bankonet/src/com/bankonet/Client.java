@@ -20,24 +20,19 @@ public class Client {
 
 	public Civilite civilite;
 
-	public List<Compte> comptesList;
-	public Map<String, Compte> comptesMap;
+	public List<Compte> comptesList = new ArrayList<Compte>();
+	public Map<String, Compte> comptesMap = new HashMap<String, Compte>();
 
-	public List<String> comptesListId;
+	public List<String> comptesListId = new ArrayList<String>();
 
-	public List<String> comptesListComptesCourantsId;
-	public List<String> comptesListComptesEpargneId;
+	public List<String> comptesListComptesCourantsId = new ArrayList<String>();
+	public List<String> comptesListComptesEpargneId = new ArrayList<String>();
 
 	public static Map<String, Client> clientsMap = new HashMap<>();
 	
 	public Client() {
 		super();
 		this.password = "azerty";
-		comptesList = new ArrayList<Compte>();
-		comptesMap = new HashMap<String, Compte>();
-		comptesListId = new ArrayList<String>();
-		comptesListComptesCourantsId = new ArrayList<String>();
-		comptesListComptesEpargneId = new ArrayList<String>();
 //		comptesList.stream().filter(c -> c instanceof CompteCourant).collect(Collectors.toList());
 	}
 

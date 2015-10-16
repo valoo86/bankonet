@@ -20,5 +20,11 @@ public class TestAutomate {
 		long l = 2147483680000L;
 		System.out.println("Num = "+num);
 	}
-
+	
+	static String titi = "r,a,a";
+	
+	public String name() {
+		return titi;
+	}
+	
 }

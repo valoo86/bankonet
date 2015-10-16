@@ -82,4 +82,5 @@ public abstract class Compte implements CompteStat{
 	public abstract double getDebit();
 	
 	public abstract String obtenirFormatEnregistrementFichier();
+	
 }
