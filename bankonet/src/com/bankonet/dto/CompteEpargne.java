@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.dto;
 
 import java.util.HashMap;
 import java.util.Map;

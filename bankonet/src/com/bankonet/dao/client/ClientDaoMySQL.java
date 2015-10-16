@@ -2,7 +2,7 @@ package com.bankonet.dao.client;
 
 import java.util.Map;
 
-import com.bankonet.Client;
+import com.bankonet.dto.Client;
 
 public class ClientDaoMySQL implements ClientDao{
 

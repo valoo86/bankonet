@@ -1,10 +1,10 @@
 package com.bankonet.test;
 
-import com.bankonet.Client;
-import com.bankonet.Compte;
-import com.bankonet.CompteCourant;
-import com.bankonet.CompteEpargne;
-import com.bankonet.Stockage;
+import com.bankonet.dto.Client;
+import com.bankonet.dto.Compte;
+import com.bankonet.dto.CompteCourant;
+import com.bankonet.dto.CompteEpargne;
+import com.bankonet.dto.Stockage;
 
 public class TestStockage {
 

@@ -2,7 +2,7 @@ package com.bankonet.dao.compte;
 
 import java.util.Map;
 
-import com.bankonet.CompteCourant;
+import com.bankonet.dto.CompteCourant;
 
 public class CompteDaoMySQL implements CompteDao{
 

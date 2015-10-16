@@ -2,12 +2,12 @@ package com.bankonet.test;
 
 import java.util.Map;
 
-import com.bankonet.Civilite;
-import com.bankonet.Client;
-import com.bankonet.Compte;
-import com.bankonet.CompteCourant;
-import com.bankonet.CompteEpargne;
-import com.bankonet.CompteNonTrouveException;;
+import com.bankonet.CompteNonTrouveException;
+import com.bankonet.dto.Civilite;
+import com.bankonet.dto.Client;
+import com.bankonet.dto.Compte;
+import com.bankonet.dto.CompteCourant;
+import com.bankonet.dto.CompteEpargne;;
 
 public class TestClient {
 

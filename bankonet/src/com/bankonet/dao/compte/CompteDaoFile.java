@@ -1,6 +1,6 @@
 package com.bankonet.dao.compte;
 
-import static com.bankonet.CompteCourant.comptesCourantsMap;
+import static com.bankonet.dto.CompteCourant.comptesCourantsMap;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,8 +12,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import com.bankonet.CompteCourant;
 import com.bankonet.CompteException;
+import com.bankonet.dto.CompteCourant;
 
 public class CompteDaoFile implements CompteDao{
 	private Map<String, CompteCourant> comptesMap;

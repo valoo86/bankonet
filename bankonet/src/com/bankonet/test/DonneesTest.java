@@ -1,8 +1,8 @@
 package com.bankonet.test;
 
-import com.bankonet.CompteCourant;
-import com.bankonet.CompteEpargne;
 import com.bankonet.CompteStat;
+import com.bankonet.dto.CompteCourant;
+import com.bankonet.dto.CompteEpargne;
 
 public class DonneesTest {
 	public static CompteStat[] construitEchantillonComptes(){

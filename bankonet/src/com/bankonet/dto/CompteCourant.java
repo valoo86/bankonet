@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.dto;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,7 @@ public class CompteCourant extends Compte {
 	// double solde;
 	public double montantDecouvertAutorise;
 
-	static int nbComptesCourants = 0;
+	public static int nbComptesCourants = 0;
 	
 	public static Map<String, CompteCourant> comptesCourantsMap = new HashMap<>();
 	

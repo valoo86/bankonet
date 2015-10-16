@@ -2,8 +2,8 @@ package com.bankonet.dao.client;
 
 import java.util.Map;
 
-import com.bankonet.Client;
 import com.bankonet.ClientException;
+import com.bankonet.dto.Client;
 
 public interface ClientDao {
 	Map<String, Client> findAll() throws ClientException;

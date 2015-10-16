@@ -1,4 +1,9 @@
-package com.bankonet;
+package com.bankonet.dto;
+
+import com.bankonet.CompteException;
+import com.bankonet.CompteStat;
+import com.bankonet.CreditException;
+import com.bankonet.DebitException;
 
 public abstract class Compte implements CompteStat{
 	

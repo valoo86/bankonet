@@ -1,8 +1,8 @@
 package com.bankonet.metier;
 
-import com.bankonet.Client;
 import com.bankonet.dao.DaoFactory;
 import com.bankonet.dao.DaoFactoryFile;
+import com.bankonet.dto.Client;
 import com.bankonet.exception.BankonetException;
 
 public class ClientServiceImpl implements ClientService {
@@ -18,11 +18,11 @@ public class ClientServiceImpl implements ClientService {
 		client.login = login;
 		client.password = "azerty";
 		
-		CompteService compteService = new CompteServiceImpl();
-		compteService.creerCompteParDefautDuClient(client);
-		
-		DaoFactory daoFactoryFile = new DaoFactoryFile();
-		daoFactoryFile.getClientDao().save(client);
+//		CompteService compteService = new CompteServiceImpl(); //c'est mieux de le passer en paramètre (plus facilement maintenable)
+//		compteService.creerCompteParDefautDuClient(client);
+//		
+//		DaoFactory daoFactoryFile = new DaoFactoryFile();
+//		daoFactoryFile.getClientDao().save(client);
 	}
 	
 }

@@ -1,5 +1,8 @@
 package com.bankonet;
 
+import com.bankonet.dto.CompteCourant;
+import com.bankonet.dto.CompteEpargne;
+
 public class TestCompteCourant {
 
 	public static void main(String[] args)

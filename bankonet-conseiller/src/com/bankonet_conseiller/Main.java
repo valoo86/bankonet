@@ -1,7 +1,7 @@
 package com.bankonet_conseiller;
 
-import static com.bankonet.Client.clientsMap;
-import static com.bankonet.CompteCourant.comptesCourantsMap;
+import static com.bankonet.dto.Client.clientsMap;
+import static com.bankonet.dto.CompteCourant.comptesCourantsMap;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,9 +12,9 @@ import java.util.Enumeration;
 import java.util.Properties;
 import java.util.Scanner;
 
-import com.bankonet.Client;
-import com.bankonet.CompteCourant;
-import com.bankonet.CompteEpargne;
+import com.bankonet.dto.Client;
+import com.bankonet.dto.CompteCourant;
+import com.bankonet.dto.CompteEpargne;
 
 public class Main {
 

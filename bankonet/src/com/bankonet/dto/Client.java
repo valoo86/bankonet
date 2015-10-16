@@ -1,4 +1,4 @@
-package com.bankonet;
+package com.bankonet.dto;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import com.bankonet.CompteNonTrouveException;
+import com.bankonet.ToString;
 
 public class Client {
 	@ToString(uppercase = true)

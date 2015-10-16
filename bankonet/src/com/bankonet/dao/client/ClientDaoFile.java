@@ -10,8 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import com.bankonet.Client;
 import com.bankonet.ClientException;
+import com.bankonet.dto.Client;
 
 public class ClientDaoFile implements ClientDao {
 	private Map<String, Client> clientsMap;

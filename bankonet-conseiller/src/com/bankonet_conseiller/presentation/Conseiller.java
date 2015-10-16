@@ -1,12 +1,31 @@
 package com.bankonet_conseiller.presentation;
 
+import com.bankonet.dao.DaoFactory;
+import com.bankonet.dao.DaoFactoryFile;
+
 public class Conseiller {
-
+	
+	private DaoFactory factory;
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		DaoFactory factory = new DaoFactoryFile();
+		
+		Conseiller conseiller = new Conseiller(factory);
+		conseiller.start();
 	}
 	
-//	public
+	
+	
+	public Conseiller(DaoFactory factory) {
+		super();
+		this.factory = factory;
+	}
 
+
+
+	public void start() {
+		
+	}
+	
 }
