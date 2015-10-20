@@ -1,7 +1,6 @@
 package com.bankonet.conseiller.command;
 
 import com.bankonet.ClientException;
-import com.bankonet.conseiller.reader.InputReader;
 import com.bankonet.dto.Client;
 import com.bankonet.metier.ClientService;
 
@@ -35,5 +34,10 @@ public class ListerTousLesClientsCommand extends IhmCommand {
 		} catch (ClientException e) {
 			System.err.println(ERROR_REKEYING);
 		}
+	}
+
+	@Override
+	public int compareTo(IhmCommand o) {
+		return this.getId() - o.getId();
 	}
 }

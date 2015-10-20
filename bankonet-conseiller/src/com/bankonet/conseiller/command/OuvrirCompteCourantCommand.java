@@ -49,4 +49,9 @@ public class OuvrirCompteCourantCommand extends IhmCommand {
 			createClient();
 		}
 	}
+	
+	@Override
+	public int compareTo(IhmCommand o) {
+		return this.getId() - o.getId();
+	}
 }

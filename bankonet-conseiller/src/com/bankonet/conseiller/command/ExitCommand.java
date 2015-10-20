@@ -19,4 +19,9 @@ public class ExitCommand extends IhmCommand {
 		System.out.println(EXIT_APP);
 		System.exit(0);
 	}
+	
+	@Override
+	public int compareTo(IhmCommand o) {
+		return this.getId() - o.getId();
+	}
 }

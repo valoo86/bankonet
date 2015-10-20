@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.TreeSet;
 
 import com.bankonet.conseiller.command.ExitCommand;
 import com.bankonet.conseiller.command.IhmCommand;
@@ -24,7 +25,14 @@ public class ConseilleAppCommand {
 
 	private List<IhmCommand> commandes;
 
-
+	
+	private TreeSet<IhmCommand> commandesSet = new TreeSet<>
+	(Arrays.asList(
+			new OuvrirCompteCourantCommand(ConsoleReader.getInstance(), clientService),
+			new ExitCommand(),
+			new ListerTousLesClientsCommand(clientService))
+			);
+	
 
 	public ConseilleAppCommand(DaoFactory factory) {
 		super();
@@ -51,7 +59,12 @@ public class ConseilleAppCommand {
 		            return commande1.getId() - commande2.getId();
 		        }
 		    });
-			for (IhmCommand ihmCommand : commandes) {
+			
+//			for (IhmCommand ihmCommand : commandes) {
+//				System.out.println(ihmCommand.getId() + ". " + ihmCommand.getLibelleMenu());
+//			}
+			
+			for (IhmCommand ihmCommand : commandesSet) {
 				System.out.println(ihmCommand.getId() + ". " + ihmCommand.getLibelleMenu());
 			}
 
