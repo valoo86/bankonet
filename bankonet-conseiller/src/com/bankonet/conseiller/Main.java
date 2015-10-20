@@ -1,4 +1,4 @@
-package com.bankonet_conseiller;
+package com.bankonet.conseiller;
 
 import static com.bankonet.dto.Client.clientsMap;
 import static com.bankonet.dto.CompteCourant.comptesCourantsMap;

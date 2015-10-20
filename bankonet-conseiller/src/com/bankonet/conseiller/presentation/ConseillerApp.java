@@ -1,17 +1,11 @@
-package com.bankonet_conseiller.presentation;
+package com.bankonet.conseiller.presentation;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 import com.bankonet.ClientException;
 import com.bankonet.dao.DaoFactory;
-import com.bankonet.dao.DaoFactoryFile;
 import com.bankonet.dao.DaoFactoryMySQL;
 import com.bankonet.dto.Client;
 import com.bankonet.exception.BankonetException;
@@ -22,7 +16,6 @@ import com.bankonet.metier.CompteServiceImpl;
 
 public class ConseillerApp {
 
-	private DaoFactory factory;
 	private  CompteService compteService;
 	private ClientService clientService;
 
@@ -41,7 +34,6 @@ public class ConseillerApp {
 	}
 
 	public ConseillerApp(DaoFactory factory) {
-		this.factory = factory;
 		this.compteService = new CompteServiceImpl(factory.getCompteDao());
 		this.clientService = new ClientServiceImpl(compteService, factory.getClientDao());
 		this.consoleMessagesMap.put("MENU_MESSAGE", "*****	APPLICATION	CONSEILLER	BANCAIRE ******\n0.	Arrêter	le programme\n1.	Ouvrir un compte courant\n2.	Lister tous les	clients\n3.	Ajouter un compte courant\nVeuillez choisir une action.");
