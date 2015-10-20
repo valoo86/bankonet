@@ -1,15 +1,22 @@
 package com.bankonet.metier;
 
-import com.bankonet.dao.DaoFactory;
-import com.bankonet.dao.DaoFactoryFile;
+import java.util.Map;
+
+import com.bankonet.ClientException;
+import com.bankonet.dao.client.ClientDao;
 import com.bankonet.dto.Client;
 import com.bankonet.exception.BankonetException;
 
 public class ClientServiceImpl implements ClientService {
 
-	private DaoFactory daoFactory = null;
-	private CompteService compteService = null;
+	private CompteService compteService;
+	private ClientDao clientDao;
 	
+	public ClientServiceImpl(CompteService compteService, ClientDao clientDao) {
+		this.compteService = compteService;
+		this.clientDao = clientDao;
+	}
+
 	@Override
 	public void creerClient(String nom, String prenom, String login) throws BankonetException {
 		Client client = new Client();
@@ -18,11 +25,13 @@ public class ClientServiceImpl implements ClientService {
 		client.login = login;
 		client.password = "azerty";
 		
-//		CompteService compteService = new CompteServiceImpl(); //c'est mieux de le passer en paramètre (plus facilement maintenable)
-//		compteService.creerCompteParDefautDuClient(client);
-//		
-//		DaoFactory daoFactoryFile = new DaoFactoryFile();
-//		daoFactoryFile.getClientDao().save(client);
+		compteService.creerCompteClient(client);
+		clientDao.save(client);
+	}
+	
+	@Override
+	public Map<String, Client> findAll() throws ClientException {
+		return clientDao.findAll();
 	}
 	
 }

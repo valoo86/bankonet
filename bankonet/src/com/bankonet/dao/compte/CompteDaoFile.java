@@ -60,10 +60,10 @@ public class CompteDaoFile implements CompteDao{
 
 	@Override
 	public void save(CompteCourant compteCourant) throws CompteException {
-
 		Properties prop = new Properties();
 		OutputStream output = null;
-
+		findAll();
+		
 		try {
 
 			output = new FileOutputStream("C:/Users/ETY/Desktop/Formation DTA/Java/Eclipse/bankonet-conseiller/comptes.properties");

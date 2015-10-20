@@ -20,12 +20,16 @@ public class ClientDaoFile implements ClientDao {
 	public Map<String, Client> findAll() throws ClientException {
 		clientsMap = new HashMap<>();
 		Properties prop = new Properties();
-		InputStream input = null;
+		//InputStream input = null;
 
-		try {
-			input = new FileInputStream(
+//		try {
+//			input = new FileInputStream(
+//					"C:/Users/ETY/Desktop/Formation DTA/Java/Eclipse/bankonet-conseiller/clients.properties");
+		
+		try ( //try with resources, possible car InputStream implements Closeable
+			InputStream input = new FileInputStream(
 					"C:/Users/ETY/Desktop/Formation DTA/Java/Eclipse/bankonet-conseiller/clients.properties");
-
+			) {
 			// load a properties file
 			prop.load(input);
 
@@ -40,22 +44,23 @@ public class ClientDaoFile implements ClientDao {
 			return clientsMap;
 		} catch (IOException e) {
 			throw new ClientException("Erreur lors de la récupération des clients", e);
-		} finally {
-			if (input != null) {
-				try {
-					input.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
+		} 
+//		finally {
+//			if (input != null) {
+//				try {
+//					input.close();
+//				} catch (IOException e) {
+//					throw new ClientException("Erreur lors de la récupération des clients", e);
+//				}
+//			}
+//		}
 	}
 
 	@Override
 	public void save(Client client) throws ClientException {
 		Properties prop = new Properties();
 		OutputStream output = null;
-
+		findAll();
 		try {
 
 			output = new FileOutputStream(
