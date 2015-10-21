@@ -9,7 +9,7 @@ public class CompteCourant extends Compte {
 	// String intitule;
 	//
 	// double solde;
-	private double montantDecouvertAutorise;
+	private Double montantDecouvertAutorise;
 
 	public static int nbComptesCourants = 0;
 	

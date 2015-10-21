@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.bankonet.ClientException;
@@ -91,4 +92,33 @@ public class ClientDaoMySQL implements ClientDao {
 		return connection;
 	}
 
+	@Override
+	public List<Client> findClientByName(String name) throws ClientException {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public List<Client> findClientByFirstname(String firstname) throws ClientException {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public Client findClientById(String id) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void updateClient(Client client) {
+		throw new UnsupportedOperationException();
+	}
+	
+	@Override
+	public void deleteClient(Client client) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void deleteAllClients() {
+		throw new UnsupportedOperationException();
+	}
 }

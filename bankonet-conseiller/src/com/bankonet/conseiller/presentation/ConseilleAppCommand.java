@@ -10,10 +10,12 @@ import com.bankonet.conseiller.command.BDDInitCommand;
 import com.bankonet.conseiller.command.ExitCommand;
 import com.bankonet.conseiller.command.IhmCommand;
 import com.bankonet.conseiller.command.ListerTousLesClientsCommand;
+import com.bankonet.conseiller.command.ModifierClientNomCommand;
 import com.bankonet.conseiller.command.OuvrirCompteCourantCommand;
+import com.bankonet.conseiller.command.RechercheClientNomCommand;
+import com.bankonet.conseiller.command.RechercheClientPrenomCommand;
 import com.bankonet.conseiller.reader.ConsoleReader;
 import com.bankonet.dao.DaoFactory;
-import com.bankonet.dao.DaoFactoryFile;
 import com.bankonet.dao.DaoFactoryJPA;
 import com.bankonet.metier.ClientService;
 import com.bankonet.metier.ClientServiceImpl;
@@ -46,7 +48,10 @@ public class ConseilleAppCommand {
 				new OuvrirCompteCourantCommand(ConsoleReader.getInstance(), clientService),
 				new ExitCommand(),
 				new ListerTousLesClientsCommand(clientService),
-				new BDDInitCommand(new InitService(factory.getClientDao()))
+				new BDDInitCommand(new InitService(factory.getClientDao())),
+				new RechercheClientPrenomCommand(ConsoleReader.getInstance(), clientService),
+				new RechercheClientNomCommand(ConsoleReader.getInstance(), clientService),
+				new ModifierClientNomCommand(ConsoleReader.getInstance(), clientService)
 				);
 	}
 

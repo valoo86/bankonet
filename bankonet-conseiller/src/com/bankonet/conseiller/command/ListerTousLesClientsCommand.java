@@ -1,12 +1,11 @@
 package com.bankonet.conseiller.command;
 
 import com.bankonet.ClientException;
+import com.bankonet.common.Constantes;
 import com.bankonet.dto.Client;
 import com.bankonet.metier.ClientService;
 
 public class ListerTousLesClientsCommand extends IhmCommand {
-
-	final private String ERROR_REKEYING = "Une erreur s'est produite merci de recommencer la saisie";
 
 	private ClientService clientService;
 
@@ -32,7 +31,7 @@ public class ListerTousLesClientsCommand extends IhmCommand {
 				System.out.println(client.toString());
 			}
 		} catch (ClientException e) {
-			System.err.println(ERROR_REKEYING);
+			System.err.println(Constantes.ERROR_REKEYING);
 		}
 	}
 }

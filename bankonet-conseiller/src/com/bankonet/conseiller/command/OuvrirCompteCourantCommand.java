@@ -1,5 +1,6 @@
 package com.bankonet.conseiller.command;
 
+import com.bankonet.common.Constantes;
 import com.bankonet.conseiller.reader.InputReader;
 import com.bankonet.exception.BankonetException;
 import com.bankonet.metier.ClientService;
@@ -10,7 +11,6 @@ public class OuvrirCompteCourantCommand extends IhmCommand {
 	final private String CHOOSE_FIRSTNAME = "Veuillez saisir votre prénom.";
 	final private String CHOOSE_LOGIN = "Veuillez saisir votre login.";
 	final private String COMMAND_CHOICE = "Vous avez choisi d'ouvrir un compte courant.";
-	final private String ERROR_REKEYING = "Une erreur s'est produite merci de recommencer la saisie";
 	
 	private InputReader inputReader;
 	private ClientService clientService;
@@ -45,7 +45,7 @@ public class OuvrirCompteCourantCommand extends IhmCommand {
 		try {
 			clientService.creerClient(name, firstname, login);
 		} catch (BankonetException e) {
-			System.err.println(ERROR_REKEYING);
+			System.err.println(Constantes.ERROR_REKEYING);
 			createClient();
 		}
 	}

@@ -1,10 +1,19 @@
 package com.bankonet.dto;
 
+
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
 import com.bankonet.CompteException;
 import com.bankonet.CompteStat;
 import com.bankonet.CreditException;
 import com.bankonet.DebitException;
 
+//@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "TYPE")
 public abstract class Compte implements CompteStat{
 	
 	enum CompteType {
@@ -15,7 +24,9 @@ public abstract class Compte implements CompteStat{
 	private String numero;
 	private String intitule;
 	
-	private double solde;
+	private Double solde;
+	
+	
 	
 	public Compte() {
 		super();

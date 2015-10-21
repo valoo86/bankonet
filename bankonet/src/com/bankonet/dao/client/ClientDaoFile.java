@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -159,5 +160,34 @@ public class ClientDaoFile implements ClientDao {
 
 		return client;
 	}
-	
+
+	@Override
+	public List<Client> findClientByName(String name) throws ClientException {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public List<Client> findClientByFirstname(String firstname) throws ClientException {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public Client findClientById(String id) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void updateClient(Client client) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void deleteClient(Client client) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void deleteAllClients() {
+		throw new UnsupportedOperationException();
+	}
 }
