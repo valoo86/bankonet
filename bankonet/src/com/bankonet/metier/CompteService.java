@@ -5,5 +5,5 @@ import com.bankonet.dto.Client;
 import com.bankonet.dto.CompteCourant;
 
 public interface CompteService {
-	void creerCompteClient(Client client) throws CompteException;
+	CompteCourant creerCompteClient(Client client) throws CompteException;
 }

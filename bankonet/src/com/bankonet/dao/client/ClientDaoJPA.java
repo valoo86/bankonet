@@ -10,6 +10,9 @@ import javax.persistence.EntityTransaction;
 
 import com.bankonet.ClientException;
 import com.bankonet.dto.Client;
+import com.bankonet.dto.Compte;
+import com.bankonet.dto.CompteCourant;
+import com.bankonet.dto.CompteEpargne;
 
 public class ClientDaoJPA implements ClientDao{
 
@@ -27,6 +30,14 @@ public class ClientDaoJPA implements ClientDao{
 
 		for (Client client : em.createQuery("select c from Client c", Client.class).getResultList()) {
 			clientsMap.put(client.getLogin(), client);
+			for (Compte compte : client.getComptesList()) {
+				if(compte instanceof CompteCourant) {
+					client.getComptesListComptesCourantsId().add(compte.getNumero());
+				}
+				else if(compte instanceof CompteEpargne) {
+					client.getComptesListComptesEpargneId().add(compte.getNumero());
+				}
+			}
 		}
 
 		em.close();

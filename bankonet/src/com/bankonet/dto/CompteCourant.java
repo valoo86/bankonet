@@ -3,6 +3,11 @@ package com.bankonet.dto;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("CC")
 public class CompteCourant extends Compte {
 	// En commentaire pour le TP6
 	// String numero;

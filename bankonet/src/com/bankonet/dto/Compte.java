@@ -3,17 +3,21 @@ package com.bankonet.dto;
 
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import com.bankonet.CompteException;
 import com.bankonet.CompteStat;
 import com.bankonet.CreditException;
 import com.bankonet.DebitException;
 
-//@Entity
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-//@DiscriminatorColumn(name = "TYPE")
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TYPE")
 public abstract class Compte implements CompteStat{
 	
 	enum CompteType {
@@ -21,12 +25,18 @@ public abstract class Compte implements CompteStat{
 		EPARGNE;
 		}
 	
+	@Id
+	@GeneratedValue
+	private Integer id;
+	
 	private String numero;
 	private String intitule;
 	
 	private Double solde;
 	
-	
+	@ManyToOne
+	@JoinColumn(name="client_id")
+	private Client client;
 	
 	public Compte() {
 		super();
@@ -94,6 +104,14 @@ public abstract class Compte implements CompteStat{
 		}
 	}
 	
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 	//méthodes abtraites
 	public abstract double getDebit();
 	

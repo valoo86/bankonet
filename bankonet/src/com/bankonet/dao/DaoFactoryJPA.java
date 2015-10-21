@@ -6,6 +6,7 @@ import javax.persistence.Persistence;
 import com.bankonet.dao.client.ClientDao;
 import com.bankonet.dao.client.ClientDaoJPA;
 import com.bankonet.dao.compte.CompteDao;
+import com.bankonet.dao.compte.CompteDaoJPA;
 
 public class DaoFactoryJPA implements DaoFactory {
 
@@ -17,13 +18,11 @@ public class DaoFactoryJPA implements DaoFactory {
 
 	@Override
 	public CompteDao getCompteDao() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CompteDaoJPA(emf);
 	}
 
 	@Override
 	public ClientDao getClientDao() {
-		// TODO Auto-generated method stub
 		return new ClientDaoJPA(emf);
 	}
 

@@ -3,6 +3,11 @@ package com.bankonet.dto;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("CE")
 public class CompteEpargne extends Compte{
 
 	private Double tauxInteret;

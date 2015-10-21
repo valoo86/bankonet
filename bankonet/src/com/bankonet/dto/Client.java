@@ -7,10 +7,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -50,7 +52,10 @@ import com.bankonet.ToString;
 		private Integer id;
 		//	@Column(name = "id", length = 25, nullable = false)
 
-		@Transient
+		//@Transient
+		@OneToMany(mappedBy="client", cascade=CascadeType.ALL) /* récupèrera les comptes quand on fera un getComptesList 
+															   (attention au Lazy...Exception si on fait un getComptesList après un em.close()
+															   Rq : pb SNCF où tout était chargé dès le début */
 		private List<Compte> comptesList = new ArrayList<Compte>();
 
 		@Transient
@@ -85,7 +90,7 @@ import com.bankonet.ToString;
 			this.identifiant = identifiant;
 		}
 
-		public Collection<Compte> getComptesList() {
+		public List<Compte> getComptesList() {
 			return comptesList;
 		}
 

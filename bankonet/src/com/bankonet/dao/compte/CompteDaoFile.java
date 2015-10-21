@@ -13,13 +13,14 @@ import java.util.Map;
 import java.util.Properties;
 
 import com.bankonet.CompteException;
+import com.bankonet.dto.Compte;
 import com.bankonet.dto.CompteCourant;
 
 public class CompteDaoFile implements CompteDao{
 	private Map<String, CompteCourant> comptesMap;
 	
 	@Override
-	public Map<String, CompteCourant> findAll() throws CompteException {
+	public Map<String, CompteCourant> findAllCC() throws CompteException {
 		comptesMap = new HashMap<>();
 		Properties prop = new Properties();
 		InputStream input = null;
@@ -59,7 +60,7 @@ public class CompteDaoFile implements CompteDao{
 
 
 	@Override
-	public void save(CompteCourant compteCourant) throws CompteException {
+	public void saveCC(CompteCourant compteCourant) throws CompteException {
 		Properties prop = new Properties();
 		OutputStream output = null;
 		findAll();
@@ -132,6 +133,20 @@ public class CompteDaoFile implements CompteDao{
 		sb.append("montantDecouvertAutorise:" + compteCourant.getMontantDecouvertAutorise());
 
 		return sb.toString();
+	}
+
+
+	@Override
+	public Map<String, Compte> findAll() throws CompteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void save(Compte compte) throws CompteException {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

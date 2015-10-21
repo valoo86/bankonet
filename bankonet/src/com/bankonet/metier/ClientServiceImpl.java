@@ -26,7 +26,8 @@ public class ClientServiceImpl implements ClientService {
 		client.setLogin(login);
 		client.setPassword("azerty");
 		
-		compteService.creerCompteClient(client);
+		client.creerCompte(compteService.creerCompteClient(client));
+		
 		clientDao.save(client);
 	}
 	
