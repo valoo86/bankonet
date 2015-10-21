@@ -1,5 +1,6 @@
 package com.bankonet.dao.client;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.EntityManager;
@@ -20,8 +21,15 @@ public class ClientDaoJPA implements ClientDao{
 
 	@Override
 	public Map<String, Client> findAll() throws ClientException {
+		Map<String, Client> clientsMap = new HashMap<>();
 		em = emFactory.createEntityManager();
-		return null;
+		
+		for (Client client : em.createQuery("select c from Client c", Client.class).getResultList()) {
+			clientsMap.put(client.getLogin(), client);
+		}
+		
+		em.close();
+		return clientsMap;
 	}
 
 	@Override
@@ -29,8 +37,13 @@ public class ClientDaoJPA implements ClientDao{
 		em = emFactory.createEntityManager();
 		EntityTransaction et = em.getTransaction();
 		et.begin();
-		em.persist(client);
+		
+		em.persist(client); //opération (il pourrait y en avoir plusieurs)
+		
 		et.commit();
 		em.close();
 	}
+	
+	
+	//public Client searchClientBy(String keyword, )
 }

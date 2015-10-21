@@ -22,7 +22,7 @@ public class OuvrirCompteCourantCommand extends IhmCommand {
 	}
 
 	@Override
-	public int getId() {
+	public Integer getId() {
 		return 1;
 	}
 
@@ -48,10 +48,5 @@ public class OuvrirCompteCourantCommand extends IhmCommand {
 			System.err.println(ERROR_REKEYING);
 			createClient();
 		}
-	}
-	
-	@Override
-	public int compareTo(IhmCommand o) {
-		return this.getId() - o.getId();
 	}
 }

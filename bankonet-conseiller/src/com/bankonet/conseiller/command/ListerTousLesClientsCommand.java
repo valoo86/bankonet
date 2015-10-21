@@ -16,7 +16,7 @@ public class ListerTousLesClientsCommand extends IhmCommand {
 	}
 
 	@Override
-	public int getId() {
+	public Integer getId() {
 		return 2;
 	}
 
@@ -34,10 +34,5 @@ public class ListerTousLesClientsCommand extends IhmCommand {
 		} catch (ClientException e) {
 			System.err.println(ERROR_REKEYING);
 		}
-	}
-
-	@Override
-	public int compareTo(IhmCommand o) {
-		return this.getId() - o.getId();
 	}
 }

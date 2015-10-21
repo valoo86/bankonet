@@ -15,7 +15,7 @@ public class BDDInitCommand extends IhmCommand {
 	}
 
 	@Override
-	public int getId() {
+	public Integer getId() {
 		return 3;
 	}
 
@@ -31,10 +31,5 @@ public class BDDInitCommand extends IhmCommand {
 		} catch (ClientException e) {
 			System.err.println(ERROR_REKEYING);
 		}
-	}
-
-	@Override
-	public int compareTo(IhmCommand o) {
-		return this.getId() - o.getId();
 	}
 }
