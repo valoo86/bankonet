@@ -20,10 +20,10 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public void creerClient(String nom, String prenom, String login) throws BankonetException {
 		Client client = new Client();
-		client.nom = nom;
-		client.prenom = prenom;
-		client.login = login;
-		client.password = "azerty";
+		client.setNom(nom);
+		client.setPrenom(prenom);
+		client.setLogin(login);
+		client.setPassword("azrety");
 		
 		compteService.creerCompteClient(client);
 		clientDao.save(client);

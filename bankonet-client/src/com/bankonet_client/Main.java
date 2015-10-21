@@ -77,7 +77,7 @@ public class Main {
 				récupérerLaListeDesComptes();
 				afficherLesComptesDeLutilisateurCourant();
 
-				if(clientCourant.comptesListComptesCourantsId.size() > 0) {
+				if(clientCourant.getComptesListComptesCourantsId().size() > 0) {
 					Compte compteSaisi = null;
 					do {
 						System.out.println("Choisissez le compte à créditer");
@@ -106,7 +106,7 @@ public class Main {
 				récupérerLaListeDesComptes();
 				afficherLesComptesDeLutilisateurCourant();
 
-				if(clientCourant.comptesListComptesCourantsId.size() > 0) {
+				if(clientCourant.getComptesListComptesCourantsId().size() > 0) {
 					Compte compteSaisi = null;
 					do {
 						System.out.println("Choisissez le compte à débiter");
@@ -141,7 +141,7 @@ public class Main {
 	}
 
 	public static void afficherLesComptesDeLutilisateurCourant() {
-		for (String compteId : clientCourant.comptesListComptesCourantsId) {
+		for (String compteId : clientCourant.getComptesListComptesCourantsId()) {
 			System.out.println(comptesCourantsMap.get(compteId).toString());
 		}
 	}
@@ -153,7 +153,7 @@ public class Main {
 		try {
 			récupérerLaListeDesClients();
 			for (Client client : clientsMap.values()) {
-				if (client.login.equals(login) && client.password.equals(mdp)) {
+				if (client.getLogin().equals(login) && client.getPassword().equals(mdp)) {
 					resultat = true;
 					clientCourant = client;
 				}
@@ -184,7 +184,7 @@ public class Main {
 				String login = (String) enumeration.nextElement();
 				String format = prop.getProperty(login);
 				Client client = Client.creerClient(login, format);
-				clientsMap.put(client.login, client);
+				clientsMap.put(client.getLogin(), client);
 			}
 		} finally {
 			if (input != null) {

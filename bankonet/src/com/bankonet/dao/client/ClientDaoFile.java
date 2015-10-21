@@ -38,7 +38,7 @@ public class ClientDaoFile implements ClientDao {
 				String login = (String) enumeration.nextElement();
 				String format = prop.getProperty(login);
 				Client client = creerClient(login, format);
-				clientsMap.put(client.login, client);
+				clientsMap.put(client.getLogin(), client);
 			}
 			
 			return clientsMap;
@@ -67,11 +67,11 @@ public class ClientDaoFile implements ClientDao {
 					"C:/Users/ETY/Desktop/Formation DTA/Java/Eclipse/bankonet-conseiller/clients.properties");
 
 			for (Client aClient : clientsMap.values()) {
-				prop.setProperty(aClient.login, obtenirFormatEnregistrementFichier(aClient));
+				prop.setProperty(aClient.getLogin(), obtenirFormatEnregistrementFichier(aClient));
 			}
 
 			// set the properties value
-			prop.setProperty(client.login, obtenirFormatEnregistrementFichier(client));
+			prop.setProperty(client.getLogin(), obtenirFormatEnregistrementFichier(client));
 
 			// save properties to project root folder
 			prop.store(output, null);
@@ -95,20 +95,20 @@ public class ClientDaoFile implements ClientDao {
 		// Paul82=nom:Paul&prenom:Hugues&comptes_courant:CC001,CC002
 		// ,CC003
 		// sb.append(this.login+"=");
-		sb.append("nom:" + client.nom + "&");
-		sb.append("prenom:" + client.prenom + "&");
-		sb.append("password:" + client.password);
-		if(client.comptesListComptesCourantsId.size() > 0){
+		sb.append("nom:" + client.getNom() + "&");
+		sb.append("prenom:" + client.getPrenom() + "&");
+		sb.append("password:" + client.getPassword());
+		if(client.getComptesListComptesCourantsId().size() > 0){
 			sb.append("&comptes_courant:");
-			for (String compteId : client.comptesListComptesCourantsId) {
+			for (String compteId : client.getComptesListComptesCourantsId()) {
 				sb.append(compteId + ",");
 			}
 			sb.setLength(sb.length() - 1);
 		}
 		
-		if(client.comptesListComptesEpargneId.size() > 0){
+		if(client.getComptesListComptesEpargneId().size() > 0){
 			sb.append("&comptes_epargne:");
-			for (String compteId : client.comptesListComptesEpargneId) {
+			for (String compteId : client.getComptesListComptesEpargneId()) {
 				sb.append(compteId + ",");
 			}
 		}
@@ -121,7 +121,7 @@ public class ClientDaoFile implements ClientDao {
 		// ,CC003
 		Client client = new Client();
 
-		client.login = login;
+		client.setLogin(login);
 
 		String[] attributes = format.split("&");
 		for (String attribute : attributes) {
@@ -132,23 +132,23 @@ public class ClientDaoFile implements ClientDao {
 				for (String compte : comptes) { // TODO : voir pour implémenter
 					// la récupération du compte
 					if (att[0].equals("comptes_courant")) {
-						client.comptesListComptesCourantsId.add(compte);
+						client.getComptesListComptesCourantsId().add(compte);
 					} else if (att[0].equals("comptes_epargne")) {
-						client.comptesListComptesEpargneId.add(compte);
+						client.getComptesListComptesEpargneId().add(compte);
 					}
 				}
 			} else {
 				switch (att[0]) {
 				case "nom":
-					client.nom = att[1];
+					client.setNom(att[1]);
 					break;
 
 				case "prenom":
-					client.prenom = att[1];
+					client.setPrenom(att[1]);
 					break;
 
 				case "password":
-					client.password = att[1];
+					client.setPassword(att[1]);
 					break;
 
 				default:

@@ -7,29 +7,57 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
 import com.bankonet.CompteNonTrouveException;
 import com.bankonet.ToString;
 
+@Entity
+@Table(name="client")
 public class Client {
 	@ToString(uppercase = true)
-	public String nom;
-	public String prenom;
-
-	public String login;
-	public String password;
+	
+	@Column(name = "name", length = 25, nullable = false)
+	private String nom;
+	
+	@Column(name = "firstname", length = 25, nullable = false)
+	private String prenom;
+	
+	private String login;
+	private String password;
 
 	@ToString
-	public String identifiant;
+	@Transient
+	private String identifiant;
 
-	public Civilite civilite;
+	@Transient
+	private Civilite civilite;
+	
+	@Id
+	@GeneratedValue
+	private Integer id;
+//	@Column(name = "id", length = 25, nullable = false)
+	
+	@Transient
+	private List<Compte> comptesList = new ArrayList<Compte>();
+	
+	@Transient
+	private Map<String, Compte> comptesMap = new HashMap<String, Compte>();
 
-	public List<Compte> comptesList = new ArrayList<Compte>();
-	public Map<String, Compte> comptesMap = new HashMap<String, Compte>();
+	@Transient
+	private List<String> comptesListId = new ArrayList<String>();
 
-	public List<String> comptesListId = new ArrayList<String>();
-
-	public List<String> comptesListComptesCourantsId = new ArrayList<String>();
-	public List<String> comptesListComptesEpargneId = new ArrayList<String>();
+	@Transient
+	private List<String> comptesListComptesCourantsId = new ArrayList<String>();
+	
+	@Transient
+	private List<String> comptesListComptesEpargneId = new ArrayList<String>();
 
 	public static Map<String, Client> clientsMap = new HashMap<>();
 	
@@ -292,5 +320,81 @@ public class Client {
 
 	public void setComptesListComptesEpargneId(List<String> comptesListComptesEpargneId) {
 		this.comptesListComptesEpargneId = comptesListComptesEpargneId;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getIdentifiant() {
+		return identifiant;
+	}
+
+	public void setIdentifiant(String identifiant) {
+		this.identifiant = identifiant;
+	}
+
+	public Civilite getCivilite() {
+		return civilite;
+	}
+
+	public void setCivilite(Civilite civilite) {
+		this.civilite = civilite;
+	}
+
+	public static Map<String, Client> getClientsMap() {
+		return clientsMap;
+	}
+
+	public static void setClientsMap(Map<String, Client> clientsMap) {
+		Client.clientsMap = clientsMap;
+	}
+
+	public void setComptesList(List<Compte> comptesList) {
+		this.comptesList = comptesList;
+	}
+
+	public void setComptesMap(Map<String, Compte> comptesMap) {
+		this.comptesMap = comptesMap;
+	}
+
+	public void setComptesListId(List<String> comptesListId) {
+		this.comptesListId = comptesListId;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

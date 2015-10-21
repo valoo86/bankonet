@@ -111,7 +111,7 @@ public class CompteDaoFile implements CompteDao{
 				break;
 
 			case "montantDecouvertAutorise":
-				compteCourant.montantDecouvertAutorise = Double.parseDouble(att[1]);
+				compteCourant.setMontantDecouvertAutorise(Double.parseDouble(att[1]));
 				break;
 
 			default:
@@ -129,7 +129,7 @@ public class CompteDaoFile implements CompteDao{
 		// ,CC003
 		sb.append("intitule:" + compteCourant.getIntitule() + "&");
 		sb.append("solde:" + compteCourant.getSolde() + "&");
-		sb.append("montantDecouvertAutorise:" + compteCourant.montantDecouvertAutorise);
+		sb.append("montantDecouvertAutorise:" + compteCourant.getMontantDecouvertAutorise());
 
 		return sb.toString();
 	}

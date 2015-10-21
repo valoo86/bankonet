@@ -103,7 +103,7 @@ public class TestClient {
 		clients[2] = clientCiviliteMademoiselle;
 
 		for (Client clt : clients) {
-			switch (clt.civilite) {
+			switch (clt.getCivilite()) {
 			case MONSIEUR:
 			case MADAME:
 			case MADEMOISELLE:

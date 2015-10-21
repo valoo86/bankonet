@@ -133,7 +133,7 @@ public class Main {
 	}
 
 	public static CompteEpargne genererCompteEpargnePourLeClient(Client client) {
-		CompteEpargne compteEpargne = new CompteEpargne(client.login+"_CE"+clientsMap.size()+1, client.nom + "_" + client.prenom + "_EPARGNE_"+clientsMap.size()+1, 300,
+		CompteEpargne compteEpargne = new CompteEpargne(client.getLogin()+"_CE"+clientsMap.size()+1, client.getNom() + "_" + client.getPrenom() + "_EPARGNE_"+clientsMap.size()+1, 300,
 				400);
 		client.creerCompteEpargneId(compteEpargne.getNumero());
 
@@ -144,13 +144,13 @@ public class Main {
 		Client client = new Client();
 
 		System.out.println("Veuillez saisir votre nom.");
-		client.nom = sc.nextLine();
+		client.setNom(sc.nextLine());
 
 		System.out.println("Veuillez saisir votre prénom.");
-		client.prenom = sc.nextLine();
+		client.setPrenom(sc.nextLine());
 
 		System.out.println("Veuillez saisir votre login.");
-		client.login = sc.nextLine();
+		client.setLogin(sc.nextLine());
 		CompteCourant compteCourant = genererCompteCourantPourLeClient(client);
 
 		try {
@@ -186,7 +186,7 @@ public class Main {
 				String login = (String) enumeration.nextElement();
 				String format = prop.getProperty(login);
 				Client client = Client.creerClient(login, format);
-				clientsMap.put(client.login, client);
+				clientsMap.put(client.getLogin(), client);
 			}
 		} finally {
 			if (input != null) {
@@ -202,7 +202,7 @@ public class Main {
 	public static CompteCourant genererCompteCourantPourLeClient(Client client) {
 //		CompteCourant compteCourant = new CompteCourant(client.login+"_CC001", client.nom + "_" + client.prenom + "_COURANT_1", 300,
 //				400);
-		CompteCourant compteCourant = new CompteCourant(client.login+"_CC00"+(client.comptesListComptesCourantsId.size()+1), client.nom + "_" + client.prenom + "_COURANT_"+(client.comptesListComptesCourantsId.size()+1), 300,
+		CompteCourant compteCourant = new CompteCourant(client.getLogin()+"_CC00"+(client.getComptesListComptesCourantsId().size()+1), client.getNom() + "_" + client.getPrenom() + "_COURANT_"+(client.getComptesListComptesCourantsId().size()+1), 300,
 				400);
 		client.creerCompteCourantId(compteCourant.getNumero());
 
@@ -220,11 +220,11 @@ public class Main {
 			output = new FileOutputStream("clients.properties");
 
 			for (Client aClient : clientsMap.values()) {
-				prop.setProperty(aClient.login, aClient.obtenirFormatEnregistrementFichier());
+				prop.setProperty(aClient.getLogin(), aClient.obtenirFormatEnregistrementFichier());
 			}
 
 			// set the properties value
-			prop.setProperty(client.login, client.obtenirFormatEnregistrementFichier());
+			prop.setProperty(client.getLogin(), client.obtenirFormatEnregistrementFichier());
 
 			// save properties to project root folder
 			prop.store(output, null);

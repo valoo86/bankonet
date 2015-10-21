@@ -14,13 +14,13 @@ public class TestStockage {
 		Client client3 = new Client("BIDULE", "Marcel", "BIMA");
 
 		Stockage<String, Client> stockageClient = new Stockage<String, Client>();
-		stockageClient.ajouter(client1.identifiant, client1);
-		stockageClient.ajouter(client2.identifiant, client2);
-		stockageClient.ajouter(client3.identifiant, client3);
+		stockageClient.ajouter(client1.getIdentifiant(), client1);
+		stockageClient.ajouter(client2.getIdentifiant(), client2);
+		stockageClient.ajouter(client3.getIdentifiant(), client3);
 
-		Client client = stockageClient.retournerElement(client1.identifiant);
+		Client client = stockageClient.retournerElement(client1.getIdentifiant());
 
-		stockageClient.supprimer(client2.identifiant);
+		stockageClient.supprimer(client2.getIdentifiant());
 
 		CompteCourant compte1 = new CompteCourant("c1", "c1 name", 50, 100);
 		CompteEpargne compte2 = new CompteEpargne("c2", "c2 name", 200, 2);

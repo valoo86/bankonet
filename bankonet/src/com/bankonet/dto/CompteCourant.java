@@ -9,7 +9,7 @@ public class CompteCourant extends Compte {
 	// String intitule;
 	//
 	// double solde;
-	public double montantDecouvertAutorise;
+	private double montantDecouvertAutorise;
 
 	public static int nbComptesCourants = 0;
 	
@@ -134,5 +134,13 @@ public class CompteCourant extends Compte {
 		}
 
 		return compteCourant;
+	}
+
+	public double getMontantDecouvertAutorise() {
+		return montantDecouvertAutorise;
+	}
+
+	public void setMontantDecouvertAutorise(double montantDecouvertAutorise) {
+		this.montantDecouvertAutorise = montantDecouvertAutorise;
 	}
 }

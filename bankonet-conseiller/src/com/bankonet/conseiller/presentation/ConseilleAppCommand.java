@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 
+import com.bankonet.conseiller.command.BDDInitCommand;
 import com.bankonet.conseiller.command.ExitCommand;
 import com.bankonet.conseiller.command.IhmCommand;
 import com.bankonet.conseiller.command.ListerTousLesClientsCommand;
@@ -13,10 +14,12 @@ import com.bankonet.conseiller.command.OuvrirCompteCourantCommand;
 import com.bankonet.conseiller.reader.ConsoleReader;
 import com.bankonet.dao.DaoFactory;
 import com.bankonet.dao.DaoFactoryFile;
+import com.bankonet.dao.DaoFactoryJPA;
 import com.bankonet.metier.ClientService;
 import com.bankonet.metier.ClientServiceImpl;
 import com.bankonet.metier.CompteService;
 import com.bankonet.metier.CompteServiceImpl;
+import com.bankonet.metier.InitService;
 
 public class ConseilleAppCommand {
 
@@ -42,7 +45,8 @@ public class ConseilleAppCommand {
 		commandes = Arrays.asList(
 				new OuvrirCompteCourantCommand(ConsoleReader.getInstance(), clientService),
 				new ExitCommand(),
-				new ListerTousLesClientsCommand(clientService)
+				new ListerTousLesClientsCommand(clientService),
+				new BDDInitCommand(new InitService(factory.getClientDao()))
 				);
 	}
 
@@ -60,13 +64,13 @@ public class ConseilleAppCommand {
 		        }
 		    });
 			
-//			for (IhmCommand ihmCommand : commandes) {
-//				System.out.println(ihmCommand.getId() + ". " + ihmCommand.getLibelleMenu());
-//			}
-			
-			for (IhmCommand ihmCommand : commandesSet) {
+			for (IhmCommand ihmCommand : commandes) {
 				System.out.println(ihmCommand.getId() + ". " + ihmCommand.getLibelleMenu());
 			}
+			
+//			for (IhmCommand ihmCommand : commandesSet) {
+//				System.out.println(ihmCommand.getId() + ". " + ihmCommand.getLibelleMenu());
+//			}
 
 			String choice = ConsoleReader.getInstance().readLine("Saisissez votre choix.");
 			for (IhmCommand ihmCommand : commandes) {
@@ -79,7 +83,8 @@ public class ConseilleAppCommand {
 	}
 
 	public static void main(String[] args) {
-		DaoFactory factory = new DaoFactoryFile();
+		//DaoFactory factory = new DaoFactoryFile();
+		DaoFactory factory = new DaoFactoryJPA("bankonet");
 
 		ConseilleAppCommand conseiller = new ConseilleAppCommand(factory);
 		conseiller.afficherMenu();

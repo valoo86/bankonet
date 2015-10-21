@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class CompteEpargne extends Compte{
 
-	double tauxInteret;
+	private double tauxInteret;
 	static final double PLAFOND = 2000;
 	
 	public static Map<String, CompteEpargne> comptesEpargnesMap = new HashMap<>();
@@ -69,6 +69,14 @@ public class CompteEpargne extends Compte{
 		}
 
 		return compteEpargne;
+	}
+
+	public double getTauxInteret() {
+		return tauxInteret;
+	}
+
+	public void setTauxInteret(double tauxInteret) {
+		this.tauxInteret = tauxInteret;
 	}
 	
 	//CompteStat

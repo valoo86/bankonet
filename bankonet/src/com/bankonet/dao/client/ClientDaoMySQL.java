@@ -34,21 +34,21 @@ public class ClientDaoMySQL implements ClientDao {
 
 				Client client = new Client();
 
-				client.nom = resultatsClient.getString("NAME");
-				client.prenom = resultatsClient.getString("FIRSTNAME");
-				client.login = resultatsClient.getString("LOGIN");
-				client.password = resultatsClient.getString("PASSWORD");
+				client.setNom(resultatsClient.getString("NAME"));
+				client.setPrenom(resultatsClient.getString("FIRSTNAME"));
+				client.setLogin(resultatsClient.getString("LOGIN"));
+				client.setPassword(resultatsClient.getString("PASSWORD"));
 
 				Statement statementCompte = connection.createStatement();
 
 				ResultSet resultatsCompte = statementCompte
-						.executeQuery("SELECT numero FROM compte WHERE client_id = '" + client.login + "'");
+						.executeQuery("SELECT numero FROM compte WHERE client_id = '" + client.getLogin() + "'");
 
 				while (resultatsCompte.next()) {
-					client.comptesListComptesCourantsId.add(resultatsCompte.getString("NUMERO"));
+					client.getComptesListComptesCourantsId().add(resultatsCompte.getString("NUMERO"));
 				}
 
-				clientsMap.put(client.login, client);
+				clientsMap.put(client.getLogin(), client);
 			}
 
 			connection.close();
