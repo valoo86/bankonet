@@ -1,0 +1,2 @@
+INSERT INTO client (name, firstname, login, password)
+VALUES ("NAME1","FIRSTNAME1", "LOGIN1", "azerty"), ("NAME2","FIRSTNAME2", "LOGIN2", "azerty"), ("NAME3","FIRSTNAME3", "LOGIN3", "azerty"), ("NAME4","FIRSTNAME4", "LOGIN4", "azerty"), ("NAME5","FIRSTNAME5", "LOGIN5", "azerty");

@@ -25,8 +25,8 @@ import com.bankonet.metier.CompteService;
 import com.bankonet.metier.CompteServiceImpl;
 import com.bankonet.metier.InitService;
 
-@Entity
 public class ConseilleAppCommand {
+
 
 	private  CompteService compteService;
 	private ClientService clientService;
@@ -39,7 +39,7 @@ public class ConseilleAppCommand {
 			new ExitCommand(),
 			new ListerTousLesClientsCommand(clientService))
 			);
-	
+
 
 	public ConseilleAppCommand(DaoFactory factory) {
 		super();
