@@ -6,6 +6,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 
+import javax.persistence.Entity;
+
 import com.bankonet.conseiller.command.BDDInitCommand;
 import com.bankonet.conseiller.command.ExitCommand;
 import com.bankonet.conseiller.command.IhmCommand;
@@ -23,6 +25,7 @@ import com.bankonet.metier.CompteService;
 import com.bankonet.metier.CompteServiceImpl;
 import com.bankonet.metier.InitService;
 
+@Entity
 public class ConseilleAppCommand {
 
 	private  CompteService compteService;
@@ -30,7 +33,6 @@ public class ConseilleAppCommand {
 
 	private List<IhmCommand> commandes;
 
-	
 	private TreeSet<IhmCommand> commandesSet = new TreeSet<>
 	(Arrays.asList(
 			new OuvrirCompteCourantCommand(ConsoleReader.getInstance(), clientService),
@@ -56,6 +58,11 @@ public class ConseilleAppCommand {
 	}
 
 	public void afficherMenu() {
+		
+		
+		
+		
+		
 		while(true) {
 			System.out.println("*****	APPLICATION	CONSEILLER	BANCAIRE ******");
 			

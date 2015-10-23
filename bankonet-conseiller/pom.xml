@@ -3,7 +3,7 @@
 maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dta</groupId>
-	<artifactId>bankonet</artifactId>
+	<artifactId>bankonet-conseiller</artifactId>
 	<version>1.0.0</version>
 
 	<build>
@@ -21,21 +21,23 @@ maven.apache.org/xsd/maven-4.0.0.xsd">
 	</build>
 
 	<dependencies>
-<!-- 		<dependency> -->
-<!-- 			<groupId>mysql</groupId> -->
-<!-- 			<artifactId>mysql-connector-java</artifactId> -->
-<!-- 			<version>5.1.35</version> -->
-<!-- 			<scope>runtime</scope> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.hibernate</groupId> -->
-<!-- 			<artifactId>hibernate-entitymanager</artifactId> -->
-<!-- 			<version>4.3.9.Final</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.35</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.9.Final</version>
+			<scope>runtime</scope>
+		</dependency>
 <!-- 		<dependency> -->
 <!-- 			<groupId>org.hibernate</groupId> -->
 <!-- 			<artifactId>hibernate-core</artifactId> -->
 <!-- 			<version>4.3.9.Final</version> -->
+<!-- 			<scope>runtime</scope> -->
 <!-- 		</dependency> -->
 <!-- 		<dependency> -->
 <!-- 			<groupId>javax</groupId> -->
@@ -43,15 +45,17 @@ maven.apache.org/xsd/maven-4.0.0.xsd">
 <!-- 			<version>7.0</version> -->
 <!-- 		</dependency> -->
 		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.1-api</artifactId>
-			<version>1.0.0.Final</version>
+			<groupId>dta</groupId>
+			<artifactId>bankonet</artifactId>
+			<version>1.0.0</version>
 		</dependency>
+		
 		<dependency>
-    		<groupId>junit</groupId>
-    		<artifactId>junit</artifactId>
-    		<version>4.12</version>
+    		<groupId>org.reflections</groupId>
+    		<artifactId>reflections</artifactId>
+    		<version>0.9.10</version>
 		</dependency>
+		
 	</dependencies>
 	
 </project>
