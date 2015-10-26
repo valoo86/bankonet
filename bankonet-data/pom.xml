@@ -51,6 +51,8 @@
 							<srcFile>src/main/sql/com/bankonet/data/clean-db.sql</srcFile>
 							<srcFile>src/main/sql/com/bankonet/data/init-db.sql</srcFile>
 						</srcFiles>
+						
+						
 
 					</configuration>
 

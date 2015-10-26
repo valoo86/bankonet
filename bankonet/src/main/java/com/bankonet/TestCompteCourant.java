@@ -95,7 +95,6 @@ public class TestCompteCourant {
 			
 			@Override
 			public double getSolde() {
-				// TODO Auto-generated method stub
 				return 0;
 			}
 		};

@@ -57,8 +57,6 @@ public class ConseillerApp {
 		//			
 		//
 		//		} catch (ClientException e) {
-		//			// TODO Auto-generated catch block
-		//			e.printStackTrace();
 		//		}
 		// logique IHM
 		handleMenuChoice(askEnterTextForQuestion(consoleMessagesMap.get("MENU_MESSAGE"), MessageType.CONSOLE));
