@@ -56,7 +56,7 @@ public class ConseillerApp {
 		//			clientService.findAll();
 		//			
 		//
-		//		} catch (ClientException e) {
+		//		} catch (ClientException e) {ddd
 		//		}
 		// logique IHM
 		handleMenuChoice(askEnterTextForQuestion(consoleMessagesMap.get("MENU_MESSAGE"), MessageType.CONSOLE));
